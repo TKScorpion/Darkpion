@@ -8,6 +8,7 @@ public class controler : MonoBehaviour
     void Start()
     {
         var PlayerHealth;
+        var PlayerDamage;
         
     }
 
