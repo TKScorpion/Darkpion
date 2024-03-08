@@ -9,7 +9,7 @@ public class controler : MonoBehaviour
     {
         var PlayerHealth;
         var PlayerDamage;
-        
+        var Pla;
     }
 
     // Update is called once per frame
