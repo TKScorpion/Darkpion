@@ -6,20 +6,24 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
 
+//To Control  Speed OR JumpPower
     private float horizontal;
     private float speed = 10f;
-    private float jumpingPower = 20f;
+    private float jumpingPower = 19f;
     private bool isFacingRight = true;
 
+//To Control Dash Power, Time, Or Cooldown
     private bool canDash = true;
     private bool isDashing;
     private float dashingPower = 140f;
     private float dashingTime = 0.22f;
     private float dashingCooldown = 0.5f;
 
+//To Control Wall Sliding Speed
     private bool isWallSliding;
-    private float wallSlidingSpeed = 2f;
+    private float wallSlidingSpeed = 2.8f;
 
+//To Control WallJump Time, Duration or Power
     private bool isWallJumping;
     private float wallJumpingDirection;
     private float wallJumpingTime = 0.2f;
@@ -53,10 +57,10 @@ public class PlayerMovement : MonoBehaviour
         
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.15f);
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.09f);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
         }
@@ -70,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+//To Check if the player is Grounded
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
